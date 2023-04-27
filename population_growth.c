@@ -1,39 +1,45 @@
 #include <stdio.h>
 #include <cs50.c>
 
+int calculateGrowthInYears(int start, int end);
+
 int main(void)
 {
 	/* Ask user input for
 	Start size: 
 	End size: */
-	int startSize = get_int("Start size: ");
-	int endSize = get_int("End size: ");
+	int startSize;
+	int endSize;
 
+	do
+	{
+		startSize = get_int("Start size: ");
+	} while (startSize < 9);
+	
+	do
+	{
+		endSize = get_int("End size: ");	
+	} while (endSize <= startSize);
+	
 	// Calculate growth in years
 	int yearsOfGrowth = 0;
-
-	if(startSize > endSize)
-	{
-		printf("The llama population is already reached your expected number.");
-	}
-
-	if (startSize == endSize)
-	{
-		yearsOfGrowth = 0;
-	}
 	
-	if (startSize < endSize)
-	{
-		do
-		{
-			startSize = startSize + startSize / 3 - startSize / 4;
-
-			yearsOfGrowth++;
-
-		} while (endSize > startSize);
-	}
-
+	yearsOfGrowth = calculateGrowthInYears(startSize, endSize);
 	// Output result
 
 	printf("Years: %i", yearsOfGrowth);
+}
+
+int calculateGrowthInYears(int startNum, int endNum)
+{
+	int n = 0;
+	do
+	{
+		startNum = startNum + startNum / 3 - startNum / 4;
+
+		n++;
+
+	} while (endNum > startNum);
+
+	return n;
 }
