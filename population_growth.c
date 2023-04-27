@@ -11,14 +11,27 @@ int main(void)
 
 	// Calculate growth in years
 	int yearsOfGrowth = 0;
-	do
+
+	if(startSize > endSize)
 	{
-		startSize = startSize + startSize / 3 - startSize / 4;
+		printf("The llama population is already reached your expected number.");
+	}
 
-		yearsOfGrowth++;
+	if (startSize == endSize)
+	{
+		yearsOfGrowth = 0;
+	}
+	
+	if (startSize < endSize)
+	{
+		do
+		{
+			startSize = startSize + startSize / 3 - startSize / 4;
 
-	} while (endSize > startSize);
+			yearsOfGrowth++;
 
+		} while (endSize > startSize);
+	}
 
 	// Output result
 
