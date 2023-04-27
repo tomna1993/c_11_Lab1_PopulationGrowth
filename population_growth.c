@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <cs50.c>
 
-int calculateGrowthInYears(int start, int end);
+int calculateGrowthInYears(int startNum, int endNum);
 
 int main(void)
 {
@@ -37,7 +37,7 @@ int main(void)
 	
 	yearsOfGrowth = calculateGrowthInYears(startSize, endSize);
 	
-	
+
 	// Output result
 	printf("Years: %i", yearsOfGrowth);
 }
