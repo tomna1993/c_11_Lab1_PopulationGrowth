@@ -1,6 +1,6 @@
+#include <cs50.h>
 #include <stdio.h>
-#include <cs50.c>
-
+ 
 int calculateGrowthInYears(int startNum, int endNum);
 
 int main(void)
@@ -11,6 +11,7 @@ int main(void)
 	int startSize;
 	int endSize;
 
+	//Start size:
 	do
 	{
 		startSize = get_int("Start size: ");
@@ -21,13 +22,14 @@ int main(void)
 		}
 	} while (startSize < 9);
 	
+	//End size:
 	do
 	{
 		endSize = get_int("End size: ");	
 
 		if(endSize <= startSize)
 		{
-			printf("You already reach the given llamas population. Give another number!\n");
+			printf("You have already reached the given llamas population. Give another number!\n");
 		}
 	} while (endSize <= startSize);
 	
@@ -36,7 +38,6 @@ int main(void)
 	int yearsOfGrowth = 0;
 	
 	yearsOfGrowth = calculateGrowthInYears(startSize, endSize);
-	
 
 	// Output result
 	printf("Years: %i", yearsOfGrowth);
